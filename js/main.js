@@ -19,15 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderPage(page) {
         display.innerHTML = '';
-        page.forEach(row => {
-            row.forEach(sixel => {
+        for (let i = 0; i < 25; i++) {
+            for (let j = 0; j < 40; j++) {
                 const cell = document.createElement('div');
                 cell.className = 'sixel';
+                const sixel = (page[i] && page[i][j]) || { char: '', color: 'black' };
                 cell.style.backgroundColor = sixel.color;
                 cell.textContent = sixel.char;
                 display.appendChild(cell);
-            });
-        });
+            }
+        }
     }
 
     loadPage('100'); // Load default page

@@ -20,17 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderEditor(page) {
         editor.innerHTML = '';
-        page.forEach((row, rowIndex) => {
-            row.forEach((sixel, colIndex) => {
+        for (let i = 0; i < 25; i++) {
+            for (let j = 0; j < 40; j++) {
                 const cell = document.createElement('div');
                 cell.className = 'sixel';
+                const sixel = (page[i] && page[i][j]) || { char: '', color: 'black' };
                 cell.style.backgroundColor = sixel.color;
                 cell.textContent = sixel.char;
                 cell.contentEditable = true;
                 cell.addEventListener('input', () => updateJsonOutput());
                 editor.appendChild(cell);
-            });
-        });
+            }
+        }
         updateJsonOutput();
     }
 
