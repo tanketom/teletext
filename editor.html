@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teletext CMS</title>
+    <title>Teletext CMS Editor</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="container">
         <input type="text" id="page-input" placeholder="Enter page number" maxlength="3">
-        <div id="teletext-display"></div>
+        <div id="teletext-editor"></div>
+        <textarea id="json-output" rows="10" cols="50" readonly></textarea>
     </div>
-    <script src="js/main.js"></script>
+    <script src="js/editor.js"></script>
 </body>
 </html>

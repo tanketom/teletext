@@ -1,0 +1,12 @@
+{
+    "pages": {
+        "100": [
+            [{"char": "W", "color": "white"}, {"char": "e", "color": "white"}, {"char": "l", "color": "white"}, {"char": "c", "color": "white"}, {"char": "o", "color": "white"}, {"char": "m", "color": "white"}, {"char": "e", "color": "white"}, {"char": "!", "color": "white"}],
+            [{"char": "", "color": "black"}, {"char": "", "color": "black"}, {"char": "", "color": "black"}, {"char": "", "color": "black"}, {"char": "", "color": "black"}, {"char": "", "color": "black"}, {"char": "", "color": "black"}, {"char": "", "color": "black"}],
+        ],
+        "404": [
+            [{"char": "P", "color": "red"}, {"char": "a", "color": "red"}, {"char": "g", "color": "red"}, {"char": "e", "color": "red"}, {"char": " ", "color": "red"}, {"char": "n", "color": "red"}, {"char": "o", "color": "red"}, {"char": "t", "color": "red"}, {"char": " ", "color": "red"}, {"char": "f", "color": "red"}, {"char": "o", "color": "red"}, {"char": "u", "color": "red"}, {"char": "n", "color": "red"}, {"char": "d", "color": "red"}, {"char": "!", "color": "red"}],
+            [{"char": "T", "color": "yellow"}, {"char": "r", "color": "yellow"}, {"char": "y", "color": "yellow"}, {"char": " ", "color": "yellow"}, {"char": "1", "color": "yellow"}, {"char": "0", "color": "yellow"}, {"char": "0", "color": "yellow"}, {"char": ".", "color": "yellow"}],
+        ]
+    }
+}
