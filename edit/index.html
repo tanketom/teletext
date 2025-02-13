@@ -12,7 +12,7 @@
             const pageNum = document.getElementById('pageNum').value;
             const response = await fetch('../json/pages.json');
             const pages = await response.json();
-            pageContent = pages[pageNum] || Array(25).fill().map(() => Array(40).fill({ type: 'char', value: ' ' }));
+            pageContent = pages[pageNum] || Array(24).fill().map(() => Array(40).fill({ type: 'char', value: ' ' }));
             renderPage(pageContent);
         }
 
@@ -21,21 +21,23 @@
             pageGrid.innerHTML = '';
             pageContent.forEach((row, rowIndex) => {
                 row.forEach((cell, colIndex) => {
-                    const pixel = document if (cell.type === 'char') {
-                        pixel.innerText = cell.value;
-                        pixel.contentEditable = true;
-                        pixel.oninput = () => {
-                            pageContent[rowIndex][colIndex].value = pixel.innerText;
+                    const sixel = document.createElement('div');
+                    sixel.className = 'sixel';
+                    if (cell.type === 'char') {
+                        sixel.innerText = cell.value;
+                        sixel.contentEditable = true;
+                        sixel.oninput = () => {
+                            pageContent[rowIndex][colIndex].value = sixel.innerText;
                         };
                     } else {
-                        pixel.style.backgroundColor = cell.value;
-                        pixel.onclick = () => {
-                            const newColor = prompt("Enter color (e.g., 'yellow', 'red'):", cell.value);
-                            pixel.style.backgroundColor = newColor;
+                        sixel.style.backgroundColor = cell.value;
+                        sixel.onclick = () => {
+                            const newColor = prompt("Enter color (white, black, yellow, cyan, magenta, dark blue, red, green):", cell.value);
+                            sixel.style.backgroundColor = newColor;
                             pageContent[rowIndex][colIndex].value = newColor;
                         };
                     }
-                    pageGrid.appendChild(pixel);
+                    pageGrid.appendChild(sixel);
                 });
             });
         }

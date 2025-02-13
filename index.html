@@ -10,7 +10,7 @@
             const pageNum = document.getElementById('pageNum').value;
             const response = await fetch('json/pages.json');
             const pages = await response.json();
-            const pageContent = pages[pageNum] || Array(25).fill().map(() => Array(40).fill({ type: 'char', value: ' ' }));
+            const pageContent = pages[pageNum] || Array(24).fill().map(() => Array(40).fill({ type: 'char', value: ' ' }));
             renderPage(pageContent);
         }
 
@@ -19,14 +19,14 @@
             pageGrid.innerHTML = '';
             pageContent.forEach(row => {
                 row.forEach(cell => {
-                    const pixel = document.createElement('div');
-                    pixel.className = 'pixel';
+                    const sixel = document.createElement('div');
+                    sixel.className = 'sixel';
                     if (cell.type === 'char') {
-                        pixel.innerText = cell.value;
+                        sixel.innerText = cell.value;
                     } else {
-                        pixel.style.backgroundColor = cell.value;
+                        sixel.style.backgroundColor = cell.value;
                     }
-                    pageGrid.appendChild(pixel);
+                    pageGrid.appendChild(sixel);
                 });
             });
         }
