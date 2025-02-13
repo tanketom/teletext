@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+    color: yellow;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.header {
+    text-align: right;
+    padding: 10px;
+}
+
+.page-grid {
+    display: grid;
+    grid-template-columns: repeat(40, 1fr);
+    grid-template-rows: repeat(25, 1fr);
+    gap: 2px;
+    padding: 10px;
+}
+
+.pixel {
+    width: 20px;
+    height: 20px;
+    border: 1px solid yellow;
+    text-align: center;
+    line-height: 20px;
+}

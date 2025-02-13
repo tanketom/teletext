@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teletext CMS</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <script>
+        async function loadPage() {
+            const pageNum = document.getElementById('pageNum').value;
+            const response = await fetch('json/pages.json');
+            const pages = await response.json();
+            const pageContent = pages[pageNum] || Array(25).fill().map(() => Array(40).fill({ type: 'char', value: ' ' }));
+            renderPage(pageContent);
+        }
+
+        function renderPage(pageContent) {
+            const pageGrid = document.getElementById('pageGrid');
+            pageGrid.innerHTML = '';
+            pageContent.forEach(row => {
+                row.forEach(cell => {
+                    const pixel = document.createElement('div');
+                    pixel.className = 'pixel';
+                    if (cell.type === 'char') {
+                        pixel.innerText = cell.value;
+                    } else {
+                        pixel.style.backgroundColor = cell.value;
+                    }
+                    pageGrid.appendChild(pixel);
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <input type="text" id="pageNum" maxlength="3" placeholder="Page #" oninput="loadPage()">
+    </div>
+    <div id="pageGrid" class="page-grid"></div>
+</body>
+</html>
